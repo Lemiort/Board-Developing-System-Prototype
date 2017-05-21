@@ -86,6 +86,17 @@ namespace Board_Developing_System_Prototype
         /// </summary>
         private int elemCount;
 
-        public Board(double width, double heigh)
+        public Board(double width, double heigh, int elemCount)
+        {
+            this.elemCount = elemCount;
+
+            this.elems = new List<Elem>();
+            // TODO: инициализировать элементы
+
+            this.width = width;
+            this.heigh = heigh;
+        }
+
+
     }
 }

@@ -49,6 +49,7 @@
     <Compile Include="BoardDevelopingSystem.cs" />
     <Compile Include="BoardDocumentation.cs" />
     <Compile Include="BoardQuality.cs" />
+    <Compile Include="Elem.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
