@@ -11,6 +11,6 @@ namespace Board_Developing_System_Prototype
     /// </summary>
     interface IElementLinker
     {
-        void LinkElements(ref Board);
+        void LinkElements(ref Board board);
     }
 }
