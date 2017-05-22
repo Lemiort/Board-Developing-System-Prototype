@@ -11,5 +11,25 @@ namespace Board_Developing_System_Prototype
     /// </summary>
     class ElementPlacerResults
     {
+        /// <summary>
+        /// время работы алгоритма
+        /// </summary>
+        private int timeOfWork;
+
+        /// <summary>
+        /// время работы алгоритма
+        /// </summary>
+        public int TimeOfWork
+        {
+            get
+            {
+                return timeOfWork;
+            }
+        }
+
+        public ElementPlacerResults(int timeOfWork)
+        {
+            this.timeOfWork = timeOfWork;
+        }
     }
 }

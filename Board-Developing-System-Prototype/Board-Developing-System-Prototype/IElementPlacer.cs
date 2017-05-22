@@ -15,7 +15,7 @@ namespace Board_Developing_System_Prototype
         /// размещение элементов
         /// </summary>
         /// <param name="board">Исходная плата</param>
-        /// <returns>время работы алгоритма</returns>
-        double PlaceElements(Board board);
+        /// <returns></returns>
+        ElementPlacerResults PlaceElements(Board board);
     }
 }

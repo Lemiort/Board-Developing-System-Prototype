@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace Board_Developing_System_Prototype
 {
-    class WaveTracer
+    /// <summary>
+    /// волоновой алгоритм трассировки
+    /// </summary>
+    class WaveTracer : IBoardTracer
     {
+        public BoardTracerResults TraceBoardConenctions(Board board)
+        {
+
+            // надеюсь этого не останется в конечной версии проекта
+            return new BoardTracerResults(((int)(((new Random()).NextDouble()) * 6) + 10) * board.ElemCount * board.ElemCount * 20);
+        }
     }
 }

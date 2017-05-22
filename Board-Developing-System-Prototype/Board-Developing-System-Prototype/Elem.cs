@@ -66,5 +66,8 @@ namespace Board_Developing_System_Prototype
             this.heigh = heigh;
             this.width = width;
         }
+
+        // TODO: положение эл-в не плате
+
     }
 }
