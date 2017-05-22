@@ -48,7 +48,7 @@ namespace Board_Developing_System_Prototype
             {
                 width = value;
             }
-        }
+        }   
 
         /// <summary>
         /// Площать элемента

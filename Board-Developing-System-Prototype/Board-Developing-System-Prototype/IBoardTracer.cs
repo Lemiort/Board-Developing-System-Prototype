@@ -7,10 +7,15 @@ using System.Threading.Tasks;
 namespace Board_Developing_System_Prototype
 {
     /// <summary>
-    /// трассировщик платы
+    /// интерфейс работы ИМ алгоритма трассировки платы
     /// </summary>
     interface IBoardTracer
     {
-        void TraceBoardConenctions(ref Board board);
+        /// <summary>
+        /// трассировка платы
+        /// </summary>
+        /// <param name="board">исходная плата</param>
+        /// <returns></returns>
+        BoardTracerResults TraceBoardConenctions(Board board);
     }
 }

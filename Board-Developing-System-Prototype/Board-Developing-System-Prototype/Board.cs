@@ -97,6 +97,7 @@ namespace Board_Developing_System_Prototype
             this.heigh = heigh;
         }
 
+        // TODO: связи между элементами
 
     }
 }

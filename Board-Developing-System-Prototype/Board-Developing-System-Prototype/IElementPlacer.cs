@@ -6,8 +6,16 @@ using System.Threading.Tasks;
 
 namespace Board_Developing_System_Prototype
 {
+    /// <summary>
+    /// интерфейс работы ИМ алгоритма размещения элементов
+    /// </summary>
     interface IElementPlacer
     {
-        void PlaceElements(ref Board board);
+        /// <summary>
+        /// размещение элементов
+        /// </summary>
+        /// <param name="board">Исходная плата</param>
+        /// <returns>время работы алгоритма</returns>
+        double PlaceElements(Board board);
     }
 }
