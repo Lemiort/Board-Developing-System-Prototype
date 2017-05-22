@@ -67,6 +67,7 @@
     <Compile Include="IQualityChecker.cs" />
     <Compile Include="MatrixPlacer.cs" />
     <Compile Include="ElementPlacerResults.cs" />
+    <Compile Include="Point.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TightPlacer.cs" />

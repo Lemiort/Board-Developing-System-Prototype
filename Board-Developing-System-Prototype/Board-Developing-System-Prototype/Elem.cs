@@ -13,6 +13,11 @@ namespace Board_Developing_System_Prototype
         /// </summary>
         private double heigh;
 
+        /// <summary>
+        /// координата
+        /// </summary>
+        Point coordinate;
+
        /// <summary>
        /// Ширина элемента
        /// </summary>
@@ -65,6 +70,7 @@ namespace Board_Developing_System_Prototype
         {
             this.heigh = heigh;
             this.width = width;
+            coordinate = new Point();
         }
 
         // TODO: положение эл-в не плате

@@ -76,6 +76,22 @@ namespace Board_Developing_System_Prototype
             }
         }
 
+        internal List<Elem> Elems
+        {
+            get
+            {
+                return elems;
+            }
+        }
+
+        public int[,] WeightedMatrix1
+        {
+            get
+            {
+                return WeightedMatrix;
+            }
+        }
+
         /// <summary>
         /// Элементы на борде
         /// </summary>
@@ -86,6 +102,17 @@ namespace Board_Developing_System_Prototype
         /// </summary>
         private int elemCount;
 
+        /// <summary>
+        /// Матрица весов
+        /// </summary>
+        private int[,] WeightedMatrix;
+
+        /// <summary>
+        /// все для рандома
+        /// </summary>
+        private const double LInkP = 0.5; 
+        private static Random random = new Random();
+
         public Board(double width, double heigh, int elemCount)
         {
             this.elemCount = elemCount;
@@ -95,9 +122,23 @@ namespace Board_Developing_System_Prototype
 
             this.width = width;
             this.heigh = heigh;
-        }
 
-        // TODO: связи между элементами
+            WeightedMatrix = new int[this.ElemCount, this.ElemCount];
+
+            //Генерация матрицы весов
+            for (int i = 0; i < this.elemCount - 1; i++)
+            {
+                for (int j = i + 1; j < this.elemCount; j++)
+                {
+                    if (Board.random.NextDouble() < LInkP)
+                    {
+                        WeightedMatrix[i, j] = Board.random.Next(1, 6);
+                        WeightedMatrix[j, i] = WeightedMatrix[i, j];
+                    }
+                }
+            }
+
+        }
 
     }
 }
