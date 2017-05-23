@@ -9,7 +9,7 @@ namespace Board_Developing_System_Prototype
     /// <summary>
     /// хранит результаты работы ИМ размещения
     /// </summary>
-    class ElementPlacerResults
+    public class ElementPlacerResults
     {
         /// <summary>
         /// время работы алгоритма

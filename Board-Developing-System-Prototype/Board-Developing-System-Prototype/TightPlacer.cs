@@ -9,7 +9,7 @@ namespace Board_Developing_System_Prototype
     /// <summary>
     /// размещает элементы используя алгоритм плотного размещения
     /// </summary>
-    class TightPlacer : IElementPlacer
+    public class TightPlacer : IElementPlacer
     {
         public static Random rand = new Random();
 

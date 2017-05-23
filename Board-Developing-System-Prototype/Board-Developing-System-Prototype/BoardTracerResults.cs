@@ -9,7 +9,7 @@ namespace Board_Developing_System_Prototype
     /// <summary>
     /// хранит результаты работы ИМ трассировки
     /// </summary>
-    class BoardTracerResults
+    public class BoardTracerResults
     {
         /// <summary>
         /// время работы алгоритма

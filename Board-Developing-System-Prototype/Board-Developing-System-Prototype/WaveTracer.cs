@@ -9,7 +9,7 @@ namespace Board_Developing_System_Prototype
     /// <summary>
     /// волоновой алгоритм трассировки
     /// </summary>
-    class WaveTracer : IBoardTracer
+    public class WaveTracer : IBoardTracer
     {
         public BoardTracerResults TraceBoardConenctions(Board board)
         {

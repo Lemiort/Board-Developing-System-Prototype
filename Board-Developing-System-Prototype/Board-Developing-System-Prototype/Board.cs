@@ -10,7 +10,7 @@ namespace Board_Developing_System_Prototype
     /// класс печатной платы, содержит исчерпывающую инфолрмаицю
     /// о плате, включая размещение, трассировку и пр.
     /// </summary>
-    class Board
+    public class Board
     {
         /// <summary>
         /// высота
