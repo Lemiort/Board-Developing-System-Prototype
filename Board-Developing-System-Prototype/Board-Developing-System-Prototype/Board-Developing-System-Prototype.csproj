@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssessmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssessmentForm.Designer.cs">
+      <DependentUpon>AssessmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="BeamTracer.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="BoardDevelopingSystem.cs" />
@@ -73,6 +79,9 @@
     <Compile Include="TightPlacer.cs" />
     <Compile Include="TrunkTracer.cs" />
     <Compile Include="WaveTracer.cs" />
+    <EmbeddedResource Include="AssessmentForm.resx">
+      <DependentUpon>AssessmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

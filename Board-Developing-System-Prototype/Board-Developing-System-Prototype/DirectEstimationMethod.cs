@@ -38,7 +38,7 @@ namespace Board_Developing_System_Prototype
         /// <param name="m">Количество экспертов</param>
         /// <param name="n">Количество объектов</param>
         /// <param name="l">Количество показателей</param>
-        public DirectEstimationMethod (int[,,] Input, int n, int m, int l)
+        public DirectEstimationMethod (double[,,] Input, int n, int m, int l)
         {
             this.n = n; this.m = m; this.l = l;
             q = new double[n, l];
@@ -46,9 +46,9 @@ namespace Board_Developing_System_Prototype
             assessment = new double[n, m, l];
 
             for (int i = 0; i < n; i++)
-                for (int j = 0; j < m; i++)
+                for (int j = 0; j < m; j++)
                     for (int h = 0; h < l; h++)
-                        assessment[i, j, l] = Input[i, j, h];
+                        assessment[i, j, h] = Input[i, j, h];
         }
 
         /// <summary>
@@ -133,7 +133,7 @@ namespace Board_Developing_System_Prototype
                 //Начальные значения коэффициентов компетентности
                 for (int i = 0; i < m; i++)
                 {
-                    k[i,h] = 1 / m;
+                    k[i,h] = 1.0 / m;
                 }
 
                 //Поиск коэффициентов компетентности
@@ -211,13 +211,21 @@ namespace Board_Developing_System_Prototype
             //подсчет весов
             for(int i=0; i<n; i++)
             {
-                for(int h=0; h<l; h++)
+                /*for(int h=0; h<l; h++)
                 {
                     for(int j=0; j<m; j++)
                     {
                         q[i, h] += assessment[i, j, h] * k[j, h];
                     }
-                }
+                }*/
+
+                ///////////////////////////////////
+                // !!!ЭТИМ ОТЛИЧАЮТСЯ КУРСАЧИ!!! //
+                ///////////////////////////////////
+                q[i, 0] = 0.4; //СТОИМОСТЬ
+                q[i, 1] = 0.2; //ПРОИЗВОДИТЕЛЬНОСТЬ
+                q[i, 1] = 0.3; //НАДЕЖНОСТЬ
+                q[i, 1] = 0.1; //КОМФОРТНОСТЬ
             }
 
             //Подсчет Групповой Оценки

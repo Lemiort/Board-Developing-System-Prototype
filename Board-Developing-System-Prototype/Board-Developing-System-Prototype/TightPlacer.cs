@@ -29,7 +29,7 @@ namespace Board_Developing_System_Prototype
             {
                 // выбор элемента
 
-                // поиск элемента с макс смежномтью
+                // поиск элемента с макс смежностью
                 int maxAdjacency = 0;
                 int maxAdjacencyElemIndex = 0;
                 foreach (int elemIndex in elemIndexes)
