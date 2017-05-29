@@ -52,8 +52,15 @@ namespace Board_Developing_System_Prototype
 
         private void button3_Click(object sender, EventArgs e)
         {
-            BoardDevelopingSystem boardDS = new BoardDevelopingSystem(placerMethod, tracerMethod, new Board(100, 100, 100));
-            mainConsole.AppendText(boardDS.DevelopBoard());
+            if ((placerMethod != 0) && (tracerMethod != 0))
+            {
+                BoardDevelopingSystem boardDS = new BoardDevelopingSystem(placerMethod, tracerMethod, new Board(100, 100, 100));
+                mainConsole.AppendText(boardDS.DevelopBoard());
+            }
+            else
+            {
+                MessageBox.Show("Не проведён опрос экспертов.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
