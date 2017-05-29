@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace Board_Developing_System_Prototype
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         private int placerMethod = 0;
         private int tracerMethod = 0;
 
         BoardDevelopingSystem boardDevSystem = new BoardDevelopingSystem();
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -44,52 +44,16 @@ namespace Board_Developing_System_Prototype
             this.placerMethod = placerDEM.CalculateBestMethod() + 1;
             this.tracerMethod = tracerDEM.CalculateBestMethod() + 1;
 
-            str += "Метод Рамещения:" + (placerMethod).ToString() + Environment.NewLine;
-            str += "Метод трассировки" + (tracerMethod).ToString() + Environment.NewLine;
+            str += "Метод Рамещения: " + (placerMethod).ToString() + Environment.NewLine;
+            str += "Метод трассировки: " + (tracerMethod).ToString() + Environment.NewLine;
 
             mainConsole.AppendText(str);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            IElementPlacer placer;
-            IBoardTracer tracer;
-
-            switch (placerMethod)
-            {
-                case 1: placer = new MatrixPlacer();
-                    break;
-                case 2: placer = new TightPlacer();
-                    break;
-                default: placer = new MatrixPlacer();
-                    break;
-            }
-
-            switch (tracerMethod)
-            {
-                case 1:
-                    tracer = new WaveTracer();
-                    break;
-                case 2:
-                    tracer = new BeamTracer();
-                    break;
-                case 3:
-                    tracer = new TrunkTracer();
-                    break;
-                default:
-                    tracer = new WaveTracer();
-                    break;
-            }
-
-            Board board = new Board(100, 100, 100);
-
-
-            ElementPlacerResults placerResult = placer.PlaceElements(board);
-            BoardTracerResults tracerResult = tracer.TraceBoardConenctions(board);
-
-            string str = "Время, затраченное на размещение: " + placerResult.TimeOfWork.ToString() + Environment.NewLine;
-            str += "Время, затраченное на трассировку: " + tracerResult.TimeOfWork.ToString() + Environment.NewLine;
-            mainConsole.AppendText(str);
+            BoardDevelopingSystem boardDS = new BoardDevelopingSystem(placerMethod, tracerMethod, new Board(100, 100, 100));
+            mainConsole.AppendText(boardDS.DevelopBoard());
         }
 
         private void button4_Click(object sender, EventArgs e)

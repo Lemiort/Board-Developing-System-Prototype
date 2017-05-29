@@ -12,29 +12,65 @@ namespace Board_Developing_System_Prototype
     public class BoardDevelopingSystem
     {
         Board board;
-        IElementLinker linker;
         IElementPlacer placer;
         IBoardTracer tracer;
 
         public BoardDevelopingSystem()
         {
             board = new Board(100, 100, 100);
-            //linker \
             placer = new MatrixPlacer();
             tracer = new TrunkTracer();
         }
 
-        public int DevelopBoard()
+        public BoardDevelopingSystem(int placerID, int tracerID, Board board)
+        {
+            this.board = board;
+
+            switch (placerID)
+            {
+                case 1:
+                    placer = new MatrixPlacer();
+                    break;
+                case 2:
+                    placer = new TightPlacer();
+                    break;
+                default:
+                    placer = new MatrixPlacer();
+                    break;
+            }
+
+            switch (tracerID)
+            {
+                case 1:
+                    tracer = new WaveTracer();
+                    break;
+                case 2:
+                    tracer = new BeamTracer();
+                    break;
+                case 3:
+                    tracer = new TrunkTracer();
+                    break;
+                default:
+                    tracer = new WaveTracer();
+                    break;
+            }
+        }
+
+        public string DevelopBoard()
         {
             int summaryTime = 0;
 
-            var result = placer.PlaceElements(board);
-            summaryTime += result.TimeOfWork;
+            var placerResult = placer.PlaceElements(board);
+            summaryTime += placerResult.TimeOfWork;
 
-            var traceResult = tracer.TraceBoardConenctions(board);
-            summaryTime += traceResult.TimeOfWork;
+            var tracerResult = tracer.TraceBoardConenctions(board);
+            summaryTime += tracerResult.TimeOfWork;
 
-            return summaryTime;
+            string str = "Время, затраченное на размещение: " + placerResult.TimeOfWork.ToString() + Environment.NewLine;
+            str += "Время, затраченное на трассировку: " + tracerResult.TimeOfWork.ToString() + Environment.NewLine;
+            str += "Суммарное время: " + summaryTime + Environment.NewLine;
+            
+            return str;
         }
     }
 }
