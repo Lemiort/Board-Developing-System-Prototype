@@ -16,7 +16,7 @@ namespace Board_Developing_System_Prototype
 
 
             // надеюсь этого не останется в конечной версии проекта
-            return new BoardTracerResults(((int)(((new Random()).NextDouble()) * 4) + 12) * board.ElemCount * board.ElemCount * 20);
+            return new BoardTracerResults(((int)(((new Random()).NextDouble()) * 4) + 12) * board.ElemCount * board.ElemCount * 5 - (new Random()).Next(board.ElemCount * board.ElemCount));
         }
     }
 }

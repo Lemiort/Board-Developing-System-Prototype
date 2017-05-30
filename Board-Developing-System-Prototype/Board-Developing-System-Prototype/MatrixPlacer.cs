@@ -20,7 +20,7 @@ namespace Board_Developing_System_Prototype
 
 
             // надеюсь этого не останется в конечной версии проекта
-            return new ElementPlacerResults(((int)(((new Random()).NextDouble()) * 5) + 3) * board.ElemCount * board.ElemCount);
+            return new ElementPlacerResults(((int)(((new Random()).NextDouble()) * 2) + 1) * board.ElemCount * board.ElemCount - (new Random()).Next(board.ElemCount * board.ElemCount));
         }
     }
 }
