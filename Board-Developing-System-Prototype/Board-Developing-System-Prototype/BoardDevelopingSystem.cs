@@ -15,6 +15,29 @@ namespace Board_Developing_System_Prototype
         IElementPlacer placer;
         IBoardTracer tracer;
 
+
+        public class DeveleopResult
+        {
+            public int TotalDevelopingTime
+            {
+                get
+                {
+                    return PlaceTime + TraceTime;
+                }
+            }
+            public int PlaceTime { get; set; }
+            public int TraceTime { get; set; }
+
+            public override string ToString()
+            {
+                string str = "Время, затраченное на размещение: " + PlaceTime + Environment.NewLine;
+                str += "Время, затраченное на трассировку: " + TraceTime + Environment.NewLine;
+                str += "Суммарное время: " + TotalDevelopingTime + Environment.NewLine;
+
+                return str;
+            }
+        }
+
         public BoardDevelopingSystem()
         {
             board = new Board(100, 100, 100);
@@ -56,7 +79,8 @@ namespace Board_Developing_System_Prototype
             }
         }
 
-        public string DevelopBoard()
+
+        public DeveleopResult DevelopBoard()
         {
             int summaryTime = 0;
 
@@ -69,8 +93,12 @@ namespace Board_Developing_System_Prototype
             string str = "Время, затраченное на размещение: " + placerResult.TimeOfWork.ToString() + Environment.NewLine;
             str += "Время, затраченное на трассировку: " + tracerResult.TimeOfWork.ToString() + Environment.NewLine;
             str += "Суммарное время: " + summaryTime + Environment.NewLine;
-            
-            return str;
+
+            //return str;
+            DeveleopResult res = new DeveleopResult();
+            res.PlaceTime = placerResult.TimeOfWork;
+            res.TraceTime = tracerResult.TimeOfWork;
+            return res;
         }
     }
 }

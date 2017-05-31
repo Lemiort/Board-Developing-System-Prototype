@@ -47,6 +47,9 @@ namespace Board_Developing_System_Prototype
             str += "Метод Рамещения: " + (placerMethod).ToString() + Environment.NewLine;
             str += "Метод трассировки: " + (tracerMethod).ToString() + Environment.NewLine;
 
+            label1.Text = "Выбранный Метод: " + (placerMethod).ToString() + Environment.NewLine;
+            label2.Text = "Выбранный Метод: " + (tracerMethod).ToString() + Environment.NewLine;
+
             mainConsole.AppendText(str);
         }
 
@@ -55,7 +58,10 @@ namespace Board_Developing_System_Prototype
             if ((placerMethod != 0) && (tracerMethod != 0))
             {
                 BoardDevelopingSystem boardDS = new BoardDevelopingSystem(placerMethod, tracerMethod, new Board(100, 100, 100));
-                mainConsole.AppendText(boardDS.DevelopBoard());
+                var result = boardDS.DevelopBoard();
+                label3.Text = "Затраченное время:\n" + result.PlaceTime;
+                label4.Text = "Затраченное время:\n" + result.TraceTime;
+                mainConsole.AppendText(result.ToString());
             }
             else
             {
