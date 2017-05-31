@@ -59,8 +59,13 @@ namespace Board_Developing_System_Prototype
             {
                 BoardDevelopingSystem boardDS = new BoardDevelopingSystem(placerMethod, tracerMethod, new Board(100, 100, 100));
                 var result = boardDS.DevelopBoard();
-                label3.Text = "Затраченное время:\n" + result.PlaceTime;
-                label4.Text = "Затраченное время:\n" + result.TraceTime;
+                int val = 16;
+
+                TimeSpan time = TimeSpan.FromSeconds(result.PlaceTime);
+                label3.Text = "Затраченное время:\n" + time.ToString("hh':'mm");
+
+                time = TimeSpan.FromSeconds(result.TraceTime);
+                label4.Text = "Затраченное время:\n" + time.ToString("hh':'mm");
                 mainConsole.AppendText(result.ToString());
             }
             else
